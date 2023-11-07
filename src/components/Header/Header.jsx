@@ -9,7 +9,7 @@ const Header = () => {
         <div className={'header'}>
             <Button onClick={onClose}>Close</Button>
             <span className={'username'}>
-                {tg.initDataUnSafe?.user?.username}
+                {user?.username}
             </span>
         </div>
     )
