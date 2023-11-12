@@ -17,13 +17,38 @@ const products = [
 const getTotalPrice = (items = []) => {
     return items.reduce((acc, item) => {
         return acc += item.price
-    })
+    } ,0)
 }
 
 const ProductList = () => {
     
     const [addedItems, setAddedItems] = useState([]);
-    const {tg} = useTelegram();
+    const {tg, queryId} = useTelegram();
+
+    const onSendData = useCallback(() => {
+        const data = {
+            products: addedItems,
+            totalPrice: getTotalPrice(addedItems)
+        }
+
+        fetch('http://localhost:8000', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        })
+
+    }, [])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
+
 
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
@@ -47,6 +72,7 @@ const ProductList = () => {
         }
     }
 
+ 
     return (
         <div className={'list'}>
             {products.map(item => (
