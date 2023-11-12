@@ -84,6 +84,7 @@ const ProductList = () => {
                     className={'item'}
                 />
             ))}
+            <button onClick={() => onSendData()}>ddd</button>
         </div>
     )
 }
