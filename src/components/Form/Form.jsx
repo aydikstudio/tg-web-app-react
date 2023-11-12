@@ -14,7 +14,7 @@ const Form = () => {
             street,
             subject
         }
-        console.log(data)
+        alert(data)
         tg.sendData(data)
       
     }, [country, street, subject])
