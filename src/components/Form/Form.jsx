@@ -14,8 +14,9 @@ const Form = () => {
             street,
             subject
         }
-        alert(data)
+      
         tg.sendData(JSON.stringify(data))
+        tg.MainButton.hide();
     }, [country, street, subject])
 
     useEffect(() => {
