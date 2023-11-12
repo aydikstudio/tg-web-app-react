@@ -29,10 +29,10 @@ const ProductList = () => {
        
         const data = {
             products: addedItems,
-            totalPrice: getTotalPrice(addedItems)
+            totalPrice: getTotalPrice(addedItems),
+            queryId
         }
-        alert(data.products)
-        alert(data.totalPrice)
+       
         fetch('http://192.168.0.114:8000/web-data', {
         method: 'POST',
         headers: {
