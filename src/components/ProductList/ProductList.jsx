@@ -34,11 +34,11 @@ const ProductList = () => {
         }
        
         fetch('http://5.35.13.13:8000/web-data', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         })
 
     }, [addedItems])
