@@ -33,7 +33,7 @@ const ProductList = () => {
             queryId
         }
        
-        fetch('https://aydikstudio.ru/project/bot/tg-web:8000/web-data', {
+        fetch('https://aydikstudio.ru:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
