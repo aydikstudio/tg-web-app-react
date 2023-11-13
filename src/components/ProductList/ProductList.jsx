@@ -33,7 +33,7 @@ const ProductList = () => {
             queryId
         }
        
-        fetch('https://aydikstudio.ru:8000/web-data', {
+        fetch('https://31.31.202.13:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
